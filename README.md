@@ -9,3 +9,15 @@ These can take in audio/text as input from the user, then make sense of the sent
 Just like humans, there is a need for supervision, i.e. to tell when something is being done right or wrong. In the computing world, this is called **supervised learning**, which these models which we are dealing with here undertake. Therefore, we are now able to see a correlation between a human and a system that acts like a human - how a human learns and how a system that tries to mimic a human learns e.g. when to say what, what is the right answer in this context, etc.
 
 This is a gist of what we are working with.
+
+## Environment Setup and Executing Code
+This section discusses how to set up and run the project.
+This is a Python-based implementation, which has been developed over Ubuntu. Run the following to set up Python and its dependencies, and also OpenAI libraries.
+```
+sudo apt update
+sudo apt install python3
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+
+sudo apt install python3-pip
+pip install --upgrade openai 
+```
