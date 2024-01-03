@@ -12,6 +12,7 @@ This is a gist of what we are working with.
 
 ## Using OpenAI
 https://platform.openai.com/docs/assistants/overview 
+https://platform.openai.com/docs/api-reference/authentication
 
 ## Environment Setup and Executing Code
 This section discusses how to set up and run the project.
