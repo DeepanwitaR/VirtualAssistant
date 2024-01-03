@@ -10,6 +10,9 @@ Just like humans, there is a need for supervision, i.e. to tell when something i
 
 This is a gist of what we are working with.
 
+## Using OpenAI
+https://platform.openai.com/docs/assistants/overview 
+
 ## Environment Setup and Executing Code
 This section discusses how to set up and run the project.
 This is a Python-based implementation, which has been developed over Ubuntu. Run the following to set up Python and its dependencies, and also OpenAI libraries.
@@ -21,3 +24,4 @@ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-
 sudo apt install python3-pip
 pip install --upgrade openai 
 ```
+
