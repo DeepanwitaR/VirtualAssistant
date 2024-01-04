@@ -55,8 +55,8 @@ pip install --upgrade openai
 ```
 git clone https://github.com/DeepanwitaR/VirtualAssistant.git # clone the repository
 cd VirtualAssistant # enter the root directory
-export OPENAI_API_KEY=<OpenAI_API_Key>
-python3 virtualasst.py
+export OPENAI_API_KEY=<OpenAI_API_Key> # export the Open AI key into the environment
+python3 virtualasst.py # run the application
 ```
 Upon a successful run with sample questions answered the output looks like the following:
 ![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/f1231454-11de-478c-86f1-9bb6d0bbbbd0)
