@@ -1,0 +1,57 @@
+Following are information about Deepa.
+An innovative and driven software engineer with 3+ years of work experience in product research, backend development, platforms and 
+edge computing. Passionate about making a difference in the world with cutting-edge technology and ideas. Ever curious to learn, and 
+grow with technology to solve real time problems.
+EXPERIENCE
+Dell Technologies, Singapore – Edge Computing Software R&D Engineer Oct 2020 – present
+• Worked and contributed to the conception of Dell Technologies’ Native Edge Platform, a next-generation orchestrator designed to 
+securely connect, boot, and maintain devices safely and efficiently, maintaining integrity and performance of the ecosystem. 
+• Developed features, solutions and microservices on product prototypes as well as the real-time product, launched in-market, in an 
+agile environment with TDD approach. Executed various proof of concept exploration (POCs) effectively to aid the direction and 
+development of the product.
+• Organised the Dell Graduate Development program, a yearlong effort to aid fresh graduates entering the company in supporting
+personal and career growth opportunities, as a core-committee member.
+Technologies used: Kubernetes-K8s and K3s, Docker containers, Hypervisors, platforms and virtualization stacks-KVM, Kubevirt, 
+Golang development, FDO Secure Onboarding, Dell and VMware products, Git, secure enclaves, and more.
+SG Digital, Singapore – Backend Software Engineer Jan. 2020 – July 2020
+• Supported application development, by contributing in designing a company product intended to facilitate the life cycle of 
+operations for various clients in the gaming industry.
+• Executed various tasks in the backend role from fixing defects to developing features to integrate the company product according 
+to client needs and their respective softwares.
+Technologies used: TCL-Linux stack, Jenkins, Java applications with the Springboot Framework, Ansible, Informix Database.
+General Electric (BHGE), Singapore – Digital Technology Intern Jan 2019 – June 2019
+• Developed Cloud applications using BHGE AI Factory. Developed UI dashboard features for a Process Analytics application 
+predicting fouling factors in refineries and generating proposed cleaning schedules using cutting edge machine learning models.
+• Extracted data using Web APIs from an OSI PI server to enable predictive analytics by implementing back-end code to extract 
+data from the plant’s server hosting the historical data required for the modelling.
+Technologies used: Python, NodeJS, Angular, Docker, Kubernetes, AWS, PI system server, Kerberos, CORS, SQL.
+Global Edge Software, Altran Group, Bengaluru – IoT Summer Intern May 2018 – June 2018
+• Interned and was trained in Internet of Things technologies at Altran Group’s Telecommunications department.
+• Developed an IoT application for Internship project, coupling the company industrial grade accelerometer with a GPS system, to
+return relative coordinates and changes in the geographical positions of different devices over time.
+Technologies used: C Programming, Mosquitto Eclipse Release, Legato Framework, MangOH Green Hardware Platform and 
+other C Programming libraries .
+PATENTS
+Test Coverage Reports for Functional Testing on UI Based Application using Heat Maps June 2023
+• Filed a patent aiming to increase the accuracy and efficiency in methods to identify gaps in functional testing, by recognising 
+limitations in the current day process of manual checking.
+• Invented a solution to enable visualization of functional testing coverage for UI based applications via heat maps and generate 
+coverage reports, minimizing gaps in testing while also enabling convenience in sharing results that are more reliable.
+• Patent filed with the US Patents and Trademarks Office (Application: 18/329813)
+Terraform Provider for VxRail Nov. 2020
+• Acknowledged the lack of provider for DellEMC VxRail servers to execute infrastructure as code, and attempted to address the 
+problem and find potential solution.
+• Invention attempted to bridge DellEMC VxRail servers to a Terraform provider, a recognised and promising tool to manage 
+infrastructure as code, a foundation for DevOps practices, therefore filling the gap.
+• Received a recognized status from the official Dell Patent Committee.
+PROFESSIONAL CERTIFICATIONS
+• Professional Certificate in Data Science and Machine Learning: Making Data Driven Decisions, Massachusetts Institute of 
+Technology, US (July - October 2023) (E-portfolio: https://eportfolio.mygreatlearning.com/deepanwita-roy)
+• Azure Fundamentals, Microsoft (March 2022)
+• Professional Certified Kubernetes Application Developer, Cloud Native Computing Foundation (CNCF) (September 2021)
+EDUCATION
+Manipal Institute of Technology, Manipal Academy of Higher Education, Manipal, Karnataka 
+Bachelor of Technology – Computer Science and Engineering, GPA : 7.25 Aug 2015 – July 2019
+Global Indian International School, Queenstown, Singapore.
+Grade XII CBSE, Percentage: 94% Mar 2014 – Mar 2015
+Grade X CBSE, GPA : 9.8
