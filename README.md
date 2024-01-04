@@ -53,6 +53,8 @@ pip install --upgrade openai
 2. We then visit the [Open AI API Keys](https://platform.openai.com/api-keys) site to generate our key. (OpenAI_API_Key)
 3. To finally run the program we execute the following:
 ```
+git clone https://github.com/DeepanwitaR/VirtualAssistant.git # clone the repository
+cd VirtualAssistant # enter the root directory
 export OPENAI_API_KEY=<OpenAI_API_Key>
 python3 virtualasst.py
 ```
