@@ -8,15 +8,33 @@ These can take in audio/text as input from the user, then make sense of the sent
 
 Just like humans, there is a need for supervision, i.e. to tell when something is being done right or wrong. In the computing world, this is called **supervised learning**, which these models which we are dealing with here undertake. Therefore, we are now able to see a correlation between a human and a system that acts like a human - how a human learns and how a system that tries to mimic a human learns e.g. when to say what, what is the right answer in this context, etc.
 
+More specifically we are interested in processing and producing language and sentences thus we will be dealing with **Natural Language Processing** models. 
+
 This is a gist of what we are working with.
 
 ## Using OpenAI
-https://platform.openai.com/docs/assistants/overview 
+[Open AI](https://openai.com/) is an organization that pioneered the field of creating language processing models which they have trained with thousands of data sets (information which they have found all across the internet) and made available to the public for use. Each of these has its unique features but all of them are capable of using for mimicking human interactions and thus make a great 'brain' for a virtual assistant. Thus I have chosen this provider for my project.
+
+There are numerous tools and models on their site. A very interesting one happens to be [Assitance AI](https://platform.openai.com/docs/assistants/overview) (which is also one of their latest releases currently in its Beta version). This is geared to be a one-stop solution for creating a virtual assistant for your needs - with a set of models and tools to support it. However, this is a very sophisticated solution that also happens to be charged we look for other alternatives. In practice too this may not be the best tool for a robust solution as it's not heavily tried and tested yet.
+
+Upon searching further I have found a best-suited solution for my project. The [Chat Completions API](https://platform.openai.com/docs/guides/text-generation/chat-completions-api)! With this:
+1. I can cater to my basic need of text generation - passing a conversation string and getting back a good response.
+2. Not a beta software so it is fairly robust.
+3. it is free of charge and easy to use!
+
+Thus my choice for the project prototype.
+
+## Architecture
+
+
+
+
 https://platform.openai.com/docs/api-reference/authentication
 
 ## Environment Setup and Executing Code
 This section discusses how to set up and run the project.
 This is a Python-based implementation, which has been developed over Ubuntu. Run the following to set up Python and its dependencies, and also OpenAI libraries.
+
 ```
 sudo apt update
 sudo apt install python3
