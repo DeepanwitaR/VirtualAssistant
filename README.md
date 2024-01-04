@@ -26,3 +26,4 @@ sudo apt install python3-pip
 pip install --upgrade openai 
 ```
 
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/5c04b6ce-7015-4350-9176-d7eb87757da6)
