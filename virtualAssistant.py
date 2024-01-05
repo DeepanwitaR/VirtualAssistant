@@ -1,5 +1,9 @@
 # Virtual Assistant program
+import virtualasst
 from openai import OpenAI
+from flask import Flask, request, jsonify
+
+app = Flask(__name__) # create a flask app server instance that will host our application
 
 client = OpenAI()
 
@@ -7,7 +11,6 @@ def readFileFunc():
   textFile = open("./information.txt", "r")
   textData = textFile.read()
   textFile.close()
-
   return textData
 
 
@@ -22,10 +25,20 @@ def textGenerationAPIFunc(question):
     ]
   )
   response_message = response.choices[0].message.content
-  print(response_message )
+  return response_message
 
+print('Powering up OpenAI based virtual assistant server...')
+# API to serve user requests
+@app.route("/", methods = ['GET','POST'])
+def getUserQuery():
+    virtualAsstQuestion = request.data
+    virtualAsstResponse = textGenerationAPIFunc(virtualAsstQuestion.decode("utf-8")) + '\n'
+    return virtualAsstResponse
 
-print('Welcome! I am an OpenAI based virtual assistant. How may I assist you?')
-while 1:
-    question = input('\n')
-    textGenerationAPIFunc(question)
+# health check API
+@app.route("/health", methods = ['GET'])
+def healthCheck():
+    return "Server up and running!\n"
+
+if __name__=="__main__":
+  app.run(debug=True, port=8000)
