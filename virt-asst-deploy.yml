@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: virt-asst-deployment
+  labels:
+    app: virt-asst
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: virt-asst
+  template:
+    metadata:
+      labels:
+        app: virt-asst
+    spec:
+      containers:
+      - name: virt-asst
+        image: localhost:5000/virt-asst-app
+        ports:
+        - containerPort: 8000
