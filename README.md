@@ -111,8 +111,30 @@ docker push localhost:5000/virt-asst-app
 ![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/8ed31cd8-33ce-420c-8d98-b8481fbac569)
 
 ## Orchestrating it to create a complete solution
-The following is the architectural diagram of the complete end to end solution.
+The following is the architectural diagram of the complete end-to-end solution.
 
+### Using K3s
+Instead of the legacy Kubernetes (k8s) mentioned above, we will go with a lightweight version of it called [k3s](https://k3s.io/) developed by Rancher. It is easier to set it up, has a smaller footprint, and the usage is pretty much identical to k8s.
+To download follow the steps [here](https://docs.k3s.io/quick-start).
+```
+curl -sfL https://get.k3s.io | sh -
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+```
+
+Let's move to the details of the k3s application 
+### Deployment
+We created a deployment that will maintain 5 identical running instances of the containers - single containers inside the individual pods, and also maintain their states. This is the brain of the running logic.
+
+This is kind of an enhanced version of a replica set since via deployments can help roll out upgrades and downgrades, along with many other features. (though we are not using it). To set it up:
+```
+kubectl apply -f virt-asst-deploy.yml # deploy
+kubectl get deploy # see deployment
+kubectl get po # see the pods
+```
+This is what it should look like
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/fd15b17f-e325-490f-a568-a1d99ec3a475)
+
+### Service
 
 
 
