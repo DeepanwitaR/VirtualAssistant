@@ -101,6 +101,7 @@ We will convert our program from a plain standalone to a containerized one. Whic
 2. Second, host a **local Docker repository** on your system so you can easily build, store, and pull images from and into it. Set it up with the steps mentioned [here](https://www.docker.com/blog/how-to-use-your-own-registry-2/).
 3. Let us build our image and push it into our local registry for storage with the following steps:
 ```
+export OPENAI_API_KEY=<OpenAI_API_Key> # export the Open AI key into the environment
 docker build -t virt-asst-app .
 docker tag virt-asst-app localhost:5000/virt-asst-app
 docker push localhost:5000/virt-asst-app
