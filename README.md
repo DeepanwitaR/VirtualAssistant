@@ -85,7 +85,7 @@ The best approach to tackle these is containerizing the application and deployin
 
 Imagine you could run almost any application in the world regardless of how different they are (from each other or the host system's OS), on your PC or server. Not only that! you could create a functioning application with them interacting with each other as well and the process takes up fewer resources on the host. That is what containers are! They are essentially any application packaged into lightweight containers (thus the name). Container providers are those involved in developing and maintaining this technology and their products. You can download their software program which is a platform on which containers are designed to run and which is designed to sit over your computer well.
 
-We have chosen [Docker](https://www.docker.com/) as our container provider.
+We have chosen [Docker](https://www.docker.com/) as our container provider, as they have a wide adoption and are free of charge.
 
 A container will run some logic, and different containers will do different tasks. We now have to meaningfully orchestrate them to create one big, unified, and powerful application. Softwares that do so are called container orchestrators.
 Docker also provides an offering called Docker Swarm. However, we will be going with [Kubernetes](https://kubernetes.io/), (though they are different companies Kubernetes can work with Docker containers) since:
@@ -93,6 +93,25 @@ Docker also provides an offering called Docker Swarm. However, we will be going 
 2. free of cost
 3. lots of users thus developer discussion threads for reference
 4. my familiarity with it. :)
+
+## Containerizing the application
+_Note: Assuming from this point one have gained some understanding of how containers particularly Docker work and/alongside orchestrators, particularly Kubernetes._
+We will convert our program from a plain standalone to a containerized one. Which we can run easily on any system with less setup and hassle. (a container in its binary form in an image and one running is called a container to be more accurate.)
+1. First, **download Docker** on our system with steps found [here](https://docs.docker.com/engine/install/ubuntu/).
+2. Second, host a **local Docker repository** on your system so you can easily build, store, and pull images from and into it. Set it up with the steps mentioned [here](https://www.docker.com/blog/how-to-use-your-own-registry-2/).
+3. Let us build our image and push it into our local registry for storage with the following steps:
+```
+docker build -t virt-asst-app .
+docker tag virt-asst-app localhost:5000/virt-asst-app
+docker push localhost:5000/virt-asst-app
+```
+**Note:** Unlike before, we developed and ran our code over an Ubuntu OS, but since it is a heavy image, we will use the lightweight Alpine distro of Linux as our container's base image giving us an image of size 108MB (as compared to Ubuntu which was 559MB)
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/8ed31cd8-33ce-420c-8d98-b8481fbac569)
+
+## Orchestrating it to create a complete solution
+
+
+
 
 
 
