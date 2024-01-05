@@ -96,6 +96,7 @@ Docker also provides an offering called Docker Swarm. However, we will be going 
 
 ## Containerizing the application
 _Note: Assuming from this point one have gained some understanding of how containers particularly Docker work and/alongside orchestrators, particularly Kubernetes._
+
 We will convert our program from a plain standalone to a containerized one. Which we can run easily on any system with less setup and hassle. (a container in its binary form in an image and one running is called a container to be more accurate.)
 1. First, **download Docker** on our system with steps found [here](https://docs.docker.com/engine/install/ubuntu/).
 2. Second, host a **local Docker repository** on your system so you can easily build, store, and pull images from and into it. Set it up with the steps mentioned [here](https://www.docker.com/blog/how-to-use-your-own-registry-2/).
@@ -110,8 +111,7 @@ docker push localhost:5000/virt-asst-app
 ![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/8ed31cd8-33ce-420c-8d98-b8481fbac569)
 
 ## Orchestrating it to create a complete solution
-
-
+The following is the architectural diagram of the complete end to end solution.
 
 
 
