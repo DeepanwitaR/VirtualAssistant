@@ -88,7 +88,7 @@ Imagine you could run almost any application in the world regardless of how diff
 We have chosen [Docker](https://www.docker.com/) as our container provider.
 
 A container will run some logic, and different containers will do different tasks. We now have to meaningfully orchestrate them to create one big, unified, and powerful application. Softwares that do so are called container orchestrators.
-Docker also provides an offering called Docker Swarm. However, we will be going with [Kubernetes](https://kubernetes.io/), since:
+Docker also provides an offering called Docker Swarm. However, we will be going with [Kubernetes](https://kubernetes.io/), (though they are different companies Kubernetes can work with Docker containers) since:
 1. it has many features making our task easier with more capabilities
 2. free of cost
 3. lots of users thus developer discussion threads for reference
