@@ -26,21 +26,23 @@ Upon searching further I have found a best-suited solution for my project. The [
 
 Thus my choice for the project prototype.
 
-## Architecture
+## Architecture of the core Virtual Assistant Logic
 ![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/f61555a3-bf93-474a-94a1-c45391ec9edb)
 
 The above is our architecture diagram. 
 
 The flow in red is the [authentication](https://platform.openai.com/docs/api-reference/authentication) flow where a user must generate their own OpenAI Authentication Key, to access the OpenAI endpoints and in turn the model that sits behind it. This is a prerequisite step and we do it once in the beginning.
 
-The flow in blue is our application flow, where our Python code takes in our request sentence, includes it in the OpenAI client request along with context information for every run (we cannot retrain the model but we can make it remember relevant details through context each time) which is the Resume Information present in information.txt and the NLP model we want to interact use and interact with in each request and post it to the endpoint. _(Note:- information is not retained across sessions and so we must provide it as context at every turn)_
+The flow in blue is our application flow, where we are hosting a basic Python HTTP server (written with the [Flask Web Framework](https://flask.palletsprojects.com/en/3.0.x/))to take in our user questions as requests and return a response.
 
-We do this as the remote model on its own is trained to answer questions fairly, but we want it to know and answer with specific information that only we have so pass it in. 
+Our Python code takes in our **request sentence** and in turn, includes it in the OpenAI client request along with **context information** for every run (we cannot retrain the model but we can make it remember relevant details through context each time) which is the Resume Information present in information.txt and **the NLP model** we want to interact use and interact with in each request and post it to the OpenAI endpoint. _(Note:- information is not retained across sessions and so we must provide it as context at every turn)_
 
-We post the request to the OpenAPI endpoint and print the response on the cmdline. We run this program with a continuous loop making it a live virtual assistant program.
+We do this as the remote model on its own is trained to answer questions fairly, but we want it to know and answer with specific information that only we have with us. 
 
-## Environment Setup and Executing Code
-This section discusses how to set up and run the project.
+We post the request to the OpenAPI endpoint and return the response from it to the Python server which in turn sends to the user.
+
+## Environment Setup and Executing Virtual Assistant Code Standalone
+This section discusses how to set up and run the project in a standalone manner.
 1. This is a Python-based implementation (developed with Python 3.10.4), which has been developed over Ubuntu (developed over Ubuntu 22.04 LTS). Run the following to set up Python and its dependencies, and also OpenAI libraries.
 ```
 sudo apt update
@@ -48,7 +50,8 @@ sudo apt install python3
 sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
 
 sudo apt install python3-pip
-pip install --upgrade openai 
+pip install --upgrade openai
+pip install -U Flask
 ```
 2. We then visit the [Open AI API Keys](https://platform.openai.com/api-keys) site to generate our key. (OpenAI_API_Key)
 3. To finally run the program we execute the following:
@@ -58,6 +61,40 @@ cd VirtualAssistant # enter the root directory
 export OPENAI_API_KEY=<OpenAI_API_Key> # export the Open AI key into the environment
 python3 virtualasst.py # run the application
 ```
+
+## Python server APIs
+```
+curl localhost:8000/ --header 'Content-Type: text/plain' --data-raw '<your question to the bot>' # user query to application
+curl localhost:8000/health # health check API
+```
 Upon a successful run with sample questions answered the output looks like the following:
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/f1231454-11de-478c-86f1-9bb6d0bbbbd0)
+For user requests:
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/28166419-5779-43d9-ab09-cdd000c163c5)
+For health checks to the server:
+
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/c2592c45-2837-45a2-bc5c-7d0c7d323d5e)
+
+## Containerizing and Deploying The Application
+In real-time, applications deployed for enterprise-grade use, need to be far more robust in action. We need to create an architecture supporting our core program in such a way that it is always:
+1. available to the user or any client program using(**fault tolerant**)
+2. can route requests well without overheating the server logic (**load balancing**)
+3. easy to deploy and migrate (**small footprint, portability, and platform independence**)
+4. easy to change overall application architecture and logic (**decoupled solution**)
+
+The best approach to tackle these is containerizing the application and deploying it as a part of a container ecosystem with an orchestrator.
+
+Imagine you could run almost any application in the world regardless of how different they are (from each other or the host system's OS), on your PC or server. Not only that! you could create a functioning application with them interacting with each other as well and the process takes up fewer resources on the host. That is what containers are! They are essentially any application packaged into lightweight containers (thus the name). Container providers are those involved in developing and maintaining this technology and their products. You can download their software program which is a platform on which containers are designed to run and which is designed to sit over your computer well.
+
+We have chosen [Docker](https://www.docker.com/) as our container provider.
+
+A container will run some logic, and different containers will do different tasks. We now have to meaningfully orchestrate them to create one big, unified, and powerful application. Softwares that do so are called container orchestrators.
+Docker also provides an offering called Docker Swarm. However, we will be going with [Kubernetes](https://kubernetes.io/), since:
+1. it has many features making our task easier with more capabilities
+2. free of cost
+3. lots of users thus developer discussion threads for reference
+4. my familiarity with it. :)
+
+
+
+
 
