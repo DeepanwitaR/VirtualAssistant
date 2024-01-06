@@ -2,7 +2,6 @@
 import os
 import virtualasst
 import openai
-# from openai import OpenAI
 from flask import Flask, request
 
 app = Flask(__name__) # create a flask app server instance that will host our application
