@@ -1,4 +1,5 @@
-FROM ubuntu:latest # TODO: try using a smaller image like alpine. 
+FROM ubuntu:latest 
+# TODO: try using a smaller image like alpine. 
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update
@@ -19,7 +20,7 @@ WORKDIR /home/$USER/
 COPY virtualasst.py ./
 COPY information.txt ./
 
-ENV OPENAI_API_KEY="<your OPENAI_API_KEY value>"
+ENV OPENAI_API_KEY="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"
 EXPOSE 8000
 
 ENTRYPOINT ["python3", "virtualasst.py"]
