@@ -20,7 +20,7 @@ WORKDIR /home/$USER/
 COPY virtualasst.py ./
 COPY information.txt ./
 
-ENV OPENAI_API_KEY="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"
+ENV OPENAI_API_KEY="your OPENAI_API_KEY"
 EXPOSE 8000
 
 ENTRYPOINT ["python3", "virtualasst.py"]
