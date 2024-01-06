@@ -28,7 +28,7 @@ def textGenerationAPIFunc(question):
   response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-      {"role": "system", "content": textData}, # we have to provide context for every round of ML query (as a pretraining) since model does not retain information across session.
+      {"role": "system", "content": textData}, # we have to provide context for every round of ML query (as a pretraining) since the model does not retain information across sessions.
       {"role": "user", "content": question},
     ]
   )
@@ -49,4 +49,5 @@ def healthCheck():
     return "Server up and running!", 200
 
 if __name__=="__main__":
-  app.run(debug=True,host="0.0.0.0", port=8000)
+  app.run(debug=True,host="0.0.0.0", port=8000) 
+  # We are hosting at address 0.0.0.0 so that any IP can resolve it. This is a trick to access the application from outside the pod (which is running on a CNI and would not be accessible otherwise)
