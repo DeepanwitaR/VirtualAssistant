@@ -1,11 +1,19 @@
 # Virtual Assistant program
+import os
 import virtualasst
-from openai import OpenAI
-from flask import Flask, request, jsonify
+import openai
+# from openai import OpenAI
+from flask import Flask, request
 
 app = Flask(__name__) # create a flask app server instance that will host our application
 
-client = OpenAI()
+openAiApiKey = os.getenv('OPENAI_API_KEY')
+if openAiApiKey == "":
+   print('Missing OPENAI_API_KEY')
+   exit()
+
+openai.api_key = openAiApiKey
+client = openai.OpenAI()
 
 def readFileFunc():
   textFile = open("./information.txt", "r")
