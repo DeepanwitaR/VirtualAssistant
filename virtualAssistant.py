@@ -40,13 +40,13 @@ print('Powering up OpenAI based virtual assistant server...')
 @app.route("/", methods = ['GET','POST'])
 def getUserQuery():
     virtualAsstQuestion = request.data
-    virtualAsstResponse = textGenerationAPIFunc(virtualAsstQuestion.decode("utf-8")) + '\n'
-    return virtualAsstResponse
+    virtualAsstResponse = textGenerationAPIFunc(virtualAsstQuestion.decode("utf-8"))
+    return virtualAsstResponse, 200
 
 # health check API
 @app.route("/health", methods = ['GET'])
 def healthCheck():
-    return "Server up and running!\n"
+    return "Server up and running!", 200
 
 if __name__=="__main__":
-  app.run(debug=True, port=8000)
+  app.run(debug=True,host="0.0.0.0", port=8000)
