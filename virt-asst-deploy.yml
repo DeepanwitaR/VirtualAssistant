@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: virt-asst
-        image: localhost:5000/virt-asst-app
+        image: localhost:5000/virt-asst-app:latest
         ports:
         - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 2
