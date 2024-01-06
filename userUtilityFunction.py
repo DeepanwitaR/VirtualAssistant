@@ -16,7 +16,7 @@ headers = {
     'Content-Type': 'text/plain',
 }
 
-# # format the string coming on as a response
+# format the string coming on as a response
 def formattingFunc(byteString):
     string = byteString.decode("utf-8")
     string = string.rstrip("\n'")
