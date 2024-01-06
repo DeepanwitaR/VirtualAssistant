@@ -1,18 +1,25 @@
-FROM alpine:3.14
+FROM ubuntu:latest # TODO: try using a smaller image like alpine. 
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt update
+RUN apt-get -y install python3 && apt-get -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget curl && apt-get install -y python3-pip
+RUN pip install --upgrade openai
+RUN pip install -U Flask
+
+# create non-root user to run flask and thus OpenAI
+ARG USER=virtualasst
+RUN useradd -ms /bin/bash $USER
+
+# set the user
+USER $USER
+
+# set working directory
+WORKDIR /home/$USER/
 
 COPY virtualasst.py ./
 COPY information.txt ./
 
-# Download the python and related dependencies
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python && apk add curl
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-
-# Download flask and openAI python libraries
-RUN pip install --upgrade openai && pip install -U Flask
-
-ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+ENV OPENAI_API_KEY="<your OPENAI_API_KEY value>"
 EXPOSE 8000
 
 ENTRYPOINT ["python3", "virtualasst.py"]
