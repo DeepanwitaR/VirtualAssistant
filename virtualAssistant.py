@@ -49,4 +49,4 @@ def healthCheck():
 
 if __name__=="__main__":
   app.run(debug=True,host="0.0.0.0", port=8000) 
-  # We are hosting at address 0.0.0.0 so that any IP can resolve it. This is a trick to access the application from outside the pod (which is running on a CNI and would not be accessible otherwise)
+  # We are hosting at address 0.0.0.0 so that any IP can resolve to it (wildcard IP sort of). This is a trick to access the application from outside the pod (which is running on a CNI and would not be accessible otherwise)
