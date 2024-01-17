@@ -36,6 +36,7 @@ The flow in red is the [authentication](https://platform.openai.com/docs/api-ref
 The flow in blue is our application flow, where we are hosting a basic Python HTTP server (written with the [Flask Web Framework](https://flask.palletsprojects.com/en/3.0.x/))to take in our user questions as requests and return a response.
 
 Our Python code takes in our **request sentence** and in turn, includes it in the OpenAI client request along with **context information** for every run (we cannot retrain the model but we can make it remember relevant details through context each time) which is the Resume Information present in information.txt and **the NLP model** we want to interact use and interact with in each request and post it to the OpenAI endpoint. _(Note:- information is not retained across sessions and so we must provide it as context at every turn)_
+(fill in details on this file to make the model work.)
 
 We do this as the remote model on its own is trained to answer questions fairly, but we want it to know and answer with specific information that only we have with us. 
 
