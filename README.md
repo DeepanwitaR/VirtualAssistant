@@ -70,11 +70,11 @@ curl localhost:8000/ --header 'Content-Type: text/plain' --data-raw '<your quest
 curl localhost:8000/health # health check API (to check whether the server is running)
 ```
 Upon a successful run with sample questions answered the output looks like the following:
-For user requests:
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/28166419-5779-43d9-ab09-cdd000c163c5)
-For health checks to the server:
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/a5a9073c-d164-4e0d-a546-0d6142251868)
 
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/c2592c45-2837-45a2-bc5c-7d0c7d323d5e)
+For user requests:
+For health checks to the server:
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/76c1988d-d53c-4c77-8b5d-55242b5df14d)
 
 ## Containerizing and Deploying The Application
 In real-time, applications deployed for enterprise-grade use, need to be far more robust in action. We need to create an architecture supporting our core program in such a way that it is always:
@@ -152,9 +152,7 @@ We created a deployment that:
 1. Will maintain 5 identical running instances of the containers - single containers inside the individual pods
 2. Will have Always restart policy to restart the container if it fails for availability
 
-This is what it should look like
-
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/fd15b17f-e325-490f-a568-a1d99ec3a475)
+Run the above commands and verify the k3s resources are up and running.
 
 ### Service
 A service serves the requests coming into it by routing them to an available pod it is geared to send over to.
@@ -166,9 +164,7 @@ A service serves the requests coming into it by routing them to an available pod
 kubectl apply -f virt-asst-service.yml # run the service
 kubectl get svc # see service
 ```
-A complete successful setup should look like this:
-
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/8025f2eb-569d-4674-b991-3109e95d4e57)
+Run the above commands and verify the k3s service is up and running.
 
 ### The User Utility Function
 This is the command-line-based interactive application that a user will face. Have all the previous steps setup and simply run:
@@ -176,7 +172,8 @@ This is the command-line-based interactive application that a user will face. Ha
 python3 userUtilityFunction.py
 ```
 In the end a successful output looks like this:
-![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/42bed801-fd2f-46be-a7af-ecd48c880896)
+![image](https://github.com/DeepanwitaR/VirtualAssistant/assets/24522364/257e4fc6-50b2-4a9d-a645-e8a160e3c6eb)
+
 
 
 
